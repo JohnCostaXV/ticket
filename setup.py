@@ -18,7 +18,7 @@ COR = 0x3498DB
 async def on_ready():
     print("Iniciado com sucesso!")
     while True:
-        await client.change_presence(game=discord.Game(name="Online com mais de {} membros!".format(str(len(set(client.get_all_members())))), url="https://www.twitch.tv/johncostaxv", type=1))
+        await client.change_presence(game=discord.Game(name="Online com mais de 144{} membros!".format(str(len(set(client.get_all_members())))), url="https://www.twitch.tv/johncostaxv", type=1))
         await asyncio.sleep(300)
         await client.change_presence(game=discord.Game(name="Criando tickets!", url="https://www.twitch.tv/johncostaxv", type=1))
         await asyncio.sleep(300)
