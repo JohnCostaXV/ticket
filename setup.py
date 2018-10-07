@@ -75,6 +75,7 @@ async def on_reaction_add(reaction, user):
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Compras-{}".format(user.name), everyone, mine)
              await client.remove_reaction(msg, "💎", user)
+         else:
              return
 
     if reaction.emoji == "📋" and msg.id == msg_id: #and user == msg_user:
@@ -87,6 +88,7 @@ async def on_reaction_add(reaction, user):
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Aplicações-{}".format(user.name), everyone, mine)
              await client.remove_reaction(msg, "📋", user)
+         else:
              return
 
     if reaction.emoji == "⛔" and msg.id == msg_id: #and user == msg_user:
@@ -99,6 +101,7 @@ async def on_reaction_add(reaction, user):
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Punições-{}".format(user.name), everyone, mine)
              await client.remove_reaction(msg, "⛔", user)
+         else:
              return
 
     if reaction.emoji == "🎳" and msg.id == msg_id: #and user == msg_user:
@@ -111,6 +114,7 @@ async def on_reaction_add(reaction, user):
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Outros-{}".format(user.name), everyone, mine)
              await client.remove_reaction(msg, "🎳", user)
+         else:
              return
 
 
