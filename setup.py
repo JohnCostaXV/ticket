@@ -38,7 +38,7 @@ async def on_message(message):
 
                 ticket = discord.Embed(
                     color=VERM,
-                    description="Para solicitar suporte, clique na reação de sua dúvida.\n\n"
+                    description="**Como funciona?**\nPara solicitar suporte, clique na reação de sua dúvida.\nIrá ser criado um chat com nossa equipe.\n\n"
                                 "`💎 - Compras`\n"
                                 "`📋 - Aplicações`\n"
                                 "`⛔ - Punições`\n"
@@ -66,19 +66,39 @@ async def on_reaction_add(reaction, user):
     msg = reaction.message
 
     if reaction.emoji == "💎" and msg.id == msg_id: #and user == msg_user:
-     print("funciono")
+     everyone_perms = discord.PermissionOverwrite(read_messages=False)
+     my_perms = discord.PermissionOverwrite(read_messages=True)
+
+     everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
+     mine = discord.ChannelPermissions(target=msg.server.me, overwrite=my_perms)   
+     await client.create_channel(msg.server, "Suporte | {}".format(user.name), everyone, mine)
      return
 
     if reaction.emoji == "📋" and msg.id == msg_id: #and user == msg_user:
-     print("funciono")
+     everyone_perms = discord.PermissionOverwrite(read_messages=False)
+     my_perms = discord.PermissionOverwrite(read_messages=True)
+
+     everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
+     mine = discord.ChannelPermissions(target=msg.server.me, overwrite=my_perms)   
+     await client.create_channel(msg.server, "Suporte | {}".format(user.name), everyone, mine)
      return
 
     if reaction.emoji == "⛔" and msg.id == msg_id: #and user == msg_user:
-     print("funciono")
+     everyone_perms = discord.PermissionOverwrite(read_messages=False)
+     my_perms = discord.PermissionOverwrite(read_messages=True)
+
+     everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
+     mine = discord.ChannelPermissions(target=msg.server.me, overwrite=my_perms)   
+     await client.create_channel(msg.server, "Suporte | {}".format(user.name), everyone, mine)
      return
 
     if reaction.emoji == "🎳" and msg.id == msg_id: #and user == msg_user:
-     print("func")
+     everyone_perms = discord.PermissionOverwrite(read_messages=False)
+     my_perms = discord.PermissionOverwrite(read_messages=True)
+
+     everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
+     mine = discord.ChannelPermissions(target=msg.server.me, overwrite=my_perms)   
+     await client.create_channel(msg.server, "Suporte | {}".format(user.name), everyone, mine)
      return
 
 
