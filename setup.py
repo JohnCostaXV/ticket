@@ -68,49 +68,49 @@ async def on_reaction_add(reaction, user):
     if reaction.emoji == "💎" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
          if role.name == "👨🏻‍🚀 Jogador":
-             await client.remove_reaction(msg, "💎", user)
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Suporte-{}".format(user.name), everyone, mine)
+             await client.remove_reaction(msg, "💎", user)
              return
 
     if reaction.emoji == "📋" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
          if role.name == "👨🏻‍🚀 Jogador":
-             await client.remove_reaction(msg, "📋", user)
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Suporte-{}".format(user.name), everyone, mine)
+             await client.remove_reaction(msg, "📋", user)
              return
 
     if reaction.emoji == "⛔" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
          if role.name == "👨🏻‍🚀 Jogador":
-             await client.remove_reaction(msg, "⛔", user)
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Suporte-{}".format(user.name), everyone, mine)
+             await client.remove_reaction(msg, "⛔", user)
              return
 
     if reaction.emoji == "🎳" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
          if role.name == "👨🏻‍🚀 Jogador":
-             await client.remove_reaction(msg, "🎳", user)
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Suporte-{}".format(user.name), everyone, mine)
+             await client.remove_reaction(msg, "🎳", user)
              return
 
 
