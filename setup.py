@@ -26,12 +26,6 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith("!role"):
-        cargo = discord.utils.get(message.server.roles, name="🌌 Coordenador")
-        await client.send_message(message.channel, cargo.mention)
-
-
-
     if message.content.lower().startswith("!criarticket"):
         cargos = [
             # IDs dos cargos:
@@ -72,6 +66,8 @@ async def on_reaction_add(reaction, user):
     if reaction.emoji == "💎" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
          if role.name == "👨🏻‍🚀 Jogador":
+             cargo = discord.utils.get(msg.server.roles, name="🌑 Staff+")
+             cargo2 = discord.utils.get(msg.server.roles, name="🌑 Staff")
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
@@ -79,12 +75,14 @@ async def on_reaction_add(reaction, user):
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              ch = await client.create_channel(msg.server, "Compras-{}".format(user.name), everyone, mine)
              await client.remove_reaction(msg, "💎", user)
-             await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. @🌑 Staff @🌑 Staff+")
+             await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. {} & {}".format(cargo.mention, cargo2.mention))
              return
 
     if reaction.emoji == "📋" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
          if role.name == "👨🏻‍🚀 Jogador":
+             cargo = discord.utils.get(msg.server.roles, name="🌑 Staff+")
+             cargo2 = discord.utils.get(msg.server.roles, name="🌑 Staff")
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
@@ -92,12 +90,14 @@ async def on_reaction_add(reaction, user):
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              ch = await client.create_channel(msg.server, "Aplicações-{}".format(user.name), everyone, mine)
              await client.remove_reaction(msg, "📋", user)
-             await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. @🌑 Staff @🌑 Staff+")
+             await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. {} & {}".format(cargo.mention, cargo2.mention))
              return
 
     if reaction.emoji == "⛔" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
          if role.name == "👨🏻‍🚀 Jogador":
+             cargo = discord.utils.get(msg.server.roles, name="🌑 Staff+")
+             cargo2 = discord.utils.get(msg.server.roles, name="🌑 Staff")
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
@@ -105,12 +105,14 @@ async def on_reaction_add(reaction, user):
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              ch = await client.create_channel(msg.server, "Punições-{}".format(user.name), everyone, mine)
              await client.remove_reaction(msg, "⛔", user)
-             await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. @🌑 Staff @🌑 Staff+")
+             await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. {} & {}".format(cargo.mention, cargo2.mention))
              return
 
     if reaction.emoji == "🎳" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
          if role.name == "👨🏻‍🚀 Jogador":
+             cargo = discord.utils.get(msg.server.roles, name="🌑 Staff+")
+             cargo2 = discord.utils.get(msg.server.roles, name="🌑 Staff")
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
@@ -118,7 +120,7 @@ async def on_reaction_add(reaction, user):
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              ch = await client.create_channel(msg.server, "Outros-{}".format(user.name), everyone, mine)
              await client.remove_reaction(msg, "🎳", user)
-             await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. @🌑 Staff @🌑 Staff+")
+             await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. {} & {}".format(cargo.mention, cargo2.mention))
              return
 
 
