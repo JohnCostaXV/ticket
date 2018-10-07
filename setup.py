@@ -68,14 +68,20 @@ async def on_reaction_add(reaction, user):
          if role.name == "👨🏻‍🚀 Jogador":
              cargo = discord.utils.get(msg.server.roles, name="🌑 Staff+")
              cargo2 = discord.utils.get(msg.server.roles, name="🌑 Staff")
+
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
-
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
-             mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
+             mine = discord.ChannelPermissions(target=user, overwrite=my_perms)
              ch = await client.create_channel(msg.server, "Compras-{}".format(user.name), everyone, mine)
+             await client.edit_channel_permissions(ch, cargo, my_perms)
+             await client.edit_channel_permissions(ch, cargo2, my_perms)
              await client.remove_reaction(msg, "💎", user)
+             embed = discord.Embed(title="`Tópico de COMPRAS`", color=VERM, description="Novo tópico!\nCriado por: {}".format(user.mention))
+             embed.set_author(name="{} | {}".format(user.name, user), icon_url=user.avatar_url)
+             embed.set_footer(text="ID: {}".format(user.id))
              await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. {} & {}".format(cargo.mention, cargo2.mention))
+             await client.send_message(ch, embed=embed)
              return
 
     if reaction.emoji == "📋" and msg.id == msg_id: #and user == msg_user:
@@ -89,8 +95,14 @@ async def on_reaction_add(reaction, user):
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              ch = await client.create_channel(msg.server, "Aplicações-{}".format(user.name), everyone, mine)
+             await client.edit_channel_permissions(ch, cargo, my_perms)
+             await client.edit_channel_permissions(ch, cargo2, my_perms)
              await client.remove_reaction(msg, "📋", user)
+             embed = discord.Embed(title="`Tópico de APLICAÇÕES`", color=VERM, description="Novo tópico!\nCriado por: {}".format(user.mention))
+             embed.set_author(name="{} | {}".format(user.name, user), icon_url=user.avatar_url)
+             embed.set_footer(text="ID: {}".format(user.id))
              await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. {} & {}".format(cargo.mention, cargo2.mention))
+             await client.send_message(ch, embed=embed)
              return
 
     if reaction.emoji == "⛔" and msg.id == msg_id: #and user == msg_user:
@@ -104,8 +116,14 @@ async def on_reaction_add(reaction, user):
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
              mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              ch = await client.create_channel(msg.server, "Punições-{}".format(user.name), everyone, mine)
+             await client.edit_channel_permissions(ch, cargo, my_perms)
+             await client.edit_channel_permissions(ch, cargo2, my_perms)
              await client.remove_reaction(msg, "⛔", user)
+             embed = discord.Embed(title="`Tópico de PUNIÇÕES`", color=VERM, description="Novo tópico!\nCriado por: {}".format(user.mention))
+             embed.set_author(name="{} | {}".format(user.name, user), icon_url=user.avatar_url)
+             embed.set_footer(text="ID: {}".format(user.id))
              await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. {} & {}".format(cargo.mention, cargo2.mention))
+             await client.send_message(ch, embed=embed)
              return
 
     if reaction.emoji == "🎳" and msg.id == msg_id: #and user == msg_user:
@@ -113,14 +131,22 @@ async def on_reaction_add(reaction, user):
          if role.name == "👨🏻‍🚀 Jogador":
              cargo = discord.utils.get(msg.server.roles, name="🌑 Staff+")
              cargo2 = discord.utils.get(msg.server.roles, name="🌑 Staff")
+
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
-             my_perms = discord.PermissionOverwrite(read_messages=True)
+             my_perms = discord.PermissionOverwrite(read_messages=True, send_messages=True)
 
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
-             mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
+             mine = discord.ChannelPermissions(target=user, overwrite=my_perms)
+
              ch = await client.create_channel(msg.server, "Outros-{}".format(user.name), everyone, mine)
+             await client.edit_channel_permissions(ch, cargo, my_perms)
+             await client.edit_channel_permissions(ch, cargo2, my_perms)
              await client.remove_reaction(msg, "🎳", user)
+             embed = discord.Embed(title="`Tópico de OUTROS`", color=VERM, description="Novo tópico!\nCriado por: {}".format(user.mention))
+             embed.set_author(name="{} | {}".format(user.name, user), icon_url=user.avatar_url)
+             embed.set_footer(text="ID: {}".format(user.id))
              await client.send_message(ch, user.mention + " nossa equipe já foi mencionada e logo estará prestando suporte. {} & {}".format(cargo.mention, cargo2.mention))
+             await client.send_message(ch, embed=embed)
              return
 
 
