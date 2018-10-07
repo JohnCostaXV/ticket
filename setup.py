@@ -67,7 +67,7 @@ async def on_reaction_add(reaction, user):
 
     if reaction.emoji == "💎" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
-         if role.name == "@everyone":
+         if role.name == "👨🏻‍🚀 Jogador":
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
@@ -79,7 +79,7 @@ async def on_reaction_add(reaction, user):
 
     if reaction.emoji == "📋" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
-         if role.name == "@everyone":
+         if role.name == "👨🏻‍🚀 Jogador":
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
@@ -91,7 +91,7 @@ async def on_reaction_add(reaction, user):
 
     if reaction.emoji == "⛔" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
-         if role.name == "@everyone":
+         if role.name == "👨🏻‍🚀 Jogador":
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
@@ -103,7 +103,7 @@ async def on_reaction_add(reaction, user):
 
     if reaction.emoji == "🎳" and msg.id == msg_id: #and user == msg_user:
      for role in user.roles:
-         if role.name == "@everyone":
+         if role.name == "👨🏻‍🚀 Jogador":
              everyone_perms = discord.PermissionOverwrite(read_messages=False)
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
