@@ -73,7 +73,7 @@ async def on_reaction_add(reaction, user):
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
-             mine = discord.ChannelPermissions(target=msg.server.me, overwrite=my_perms)   
+             mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Suporte-{}".format(user.name), everyone, mine)
              return
 
@@ -85,7 +85,7 @@ async def on_reaction_add(reaction, user):
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
-             mine = discord.ChannelPermissions(target=msg.server.me, overwrite=my_perms)   
+             mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Suporte-{}".format(user.name), everyone, mine)
              return
 
@@ -97,7 +97,7 @@ async def on_reaction_add(reaction, user):
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
-             mine = discord.ChannelPermissions(target=msg.server.me, overwrite=my_perms)   
+             mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Suporte-{}".format(user.name), everyone, mine)
              return
 
@@ -109,7 +109,7 @@ async def on_reaction_add(reaction, user):
              my_perms = discord.PermissionOverwrite(read_messages=True)
 
              everyone = discord.ChannelPermissions(target=msg.server.default_role, overwrite=everyone_perms)
-             mine = discord.ChannelPermissions(target=msg.server.me, overwrite=my_perms)   
+             mine = discord.ChannelPermissions(target=user, overwrite=my_perms)   
              await client.create_channel(msg.server, "Suporte-{}".format(user.name), everyone, mine)
              return
 
