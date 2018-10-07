@@ -13,6 +13,7 @@ import base64
 client = discord.Client()
 
 COR = 0x3498DB
+VERM = 0xFA0909
 
 @client.event
 async def on_ready():
@@ -36,12 +37,12 @@ async def on_message(message):
             if r.id in cargos:
 
                 ticket = discord.Embed(
-                    color=COR,
+                    color=VERM,
                     description="Para solicitar suporte, clique na reação de sua dúvida.\n\n"
                                 "`💎 - Compras`\n"
                                 "`📋 - Aplicações`\n"
                                 "`⛔ - Punições`\n"
-                                "`🎳 - Outros"
+                                "`🎳 - Outros`"
                 )
                 ticket.set_author(name="Sistema de suporte")
                 ticket.set_footer(text="Equipe de desenvolvimento do discord", icon_url="https://images-ext-1.discordapp.net/external/BCKxPNzZzEVfkbIublv7_3wG2016jTwGk3onTemVRnM/%3Fv%3D1/https/cdn.discordapp.com/emojis/450112878108999680.gif")
@@ -65,32 +66,20 @@ async def on_reaction_add(reaction, user):
     msg = reaction.message
 
     if reaction.emoji == "💎" and msg.id == msg_id: #and user == msg_user:
-     for role in user.roles:
-         if role.name == "👨🏻‍🚀 Jogador":
-             await client.remove_reaction(msg, "💎", user)
-
      print("funciono")
+     return
 
     if reaction.emoji == "📋" and msg.id == msg_id: #and user == msg_user:
-     for role in user.roles:
-         if role.name == "👨🏻‍🚀 Jogador":
-             await client.remove_reaction(msg, "📋", user)
-
      print("funciono")
+     return
 
     if reaction.emoji == "⛔" and msg.id == msg_id: #and user == msg_user:
-     for role in user.roles:
-         if role.name == "👨🏻‍🚀 Jogador":
-             await client.remove_reaction(msg, "⛔", user)
-
      print("funciono")
-
-
+     return
 
     if reaction.emoji == "🎳" and msg.id == msg_id: #and user == msg_user:
-     for role in user.roles:
-         if role.name == "👨🏻‍🚀 Jogador":
-             await client.remove_reaction(msg, "🎳", user)
+     print("func")
+     return
 
 
 client.run(os.environ.get("BOT_TOKEN"))
