@@ -19,8 +19,6 @@ VERM = 0xFA0909
 async def on_ready():
     print("Iniciado com sucesso!")
     while True:
-        await client.change_presence(game=discord.Game(name="Online com mais de 144{} membros!".format(str(len(set(client.get_all_members())))), url="https://www.twitch.tv/johncostaxv", type=1))
-        await asyncio.sleep(300)
         await client.change_presence(game=discord.Game(name="Criando tickets!", url="https://www.twitch.tv/johncostaxv", type=1))
         await asyncio.sleep(300)
         await client.change_presence(game=discord.Game(name="Criado pelo Johnn#0001", url="https://www.twitch.tv/johncostaxv", type=1))
@@ -28,6 +26,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if message.content.startswith("!role"):
+        cargo = discord.utils.get(message.server.roles, name="🌌 Coordenador")
+        await client.send_message(message.channel, cargo.mention)
+
+
+
     if message.content.lower().startswith("!criarticket"):
         cargos = [
             # IDs dos cargos:
