@@ -19,6 +19,7 @@ VERM = 0xFA0909
 async def on_ready():
     print("Iniciado com sucesso!")
     while True:
+        await client.change_presence(game=discord.Game(name="Trasmitindo amor para 3 servidores, digite y!help se precisar de ajuda ", url="https://www.twitch.tv/maria_uchida", type=1))
         await client.change_presence(game=discord.Game(name="Criando tickets!", url="https://www.twitch.tv/johncostaxv", type=1))
         await asyncio.sleep(300)
         await client.change_presence(game=discord.Game(name="Criado pelo Johnn#0001", url="https://www.twitch.tv/johncostaxv", type=1))
@@ -30,14 +31,14 @@ async def on_message(message):
         await client.add_reaction(message, "🔩")
         await asyncio.sleep(1)
         await client.send_message(message.author, "📢 **DENÚNCIA**:\nDeseja reportar um usuário que cometeu uma infração em nosso servidor, {}? Faça a denúncia!\n\nPara cancelar pode usar `cancelar` há qualquer momento. Vamos lá!\n📌**Qual o usuário que deseja reportar?**")
+        await client.wait_for_message(author=message.author, content="cancelar")
+        await client.send_message(message.author, "Denúncia cancelada!")
         usuário = await client.wait_for_message(author=message.author)
         await client.send_message(message.author, "📌 **Qual motivo da denúncia?**")
         motivo = await client.wait_for_message(author=message.author)
         await client.send_message(message.author, "📌 **Possui alguma prova do ocorrido?**")
         prova = await client.wait_for_message(author=message.author)
         await client.send_message(message.author, "📌 **Denúncia enviada com sucesso!**")
-        await client.wait_for_message(author=message.author, content="cancelar")
-        await client.send_message(message.author, "Denúncia cancelada!")
         return
 
         canal = client.get_channel("498300664607408129")
