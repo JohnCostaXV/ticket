@@ -29,6 +29,12 @@ async def on_message(message):
     if message.content.lower().startswith("!reportar"):
         await client.add_reaction(message, "🔩")
         await asyncio.sleep(1)
+        await client.send_message(message.author, "Você realmente deseja denúnciar um usuário? Use `SIM` ou `CANCELAR`.")
+        await client.wait_for_message(author=message.author, content="CANCELAR")
+        await client.send_message(message.author, "Denúncia cancelada.")
+        return
+        
+        await client.wait_for_message(author=message.author, content="SIM")
         await client.send_message(message.author, "Qual o usuário que deseja reportar?")
         usuário = await client.wait_for_message(author=message.author)
         await client.send_message(message.author, "Qual motivo da denúncia?")
@@ -36,6 +42,7 @@ async def on_message(message):
         await client.send_message(message.author, "Possui alguma prova do ocorrido?")
         prova = await client.wait_for_message(author=message.author)
         await client.send_message(message.author, "📞 | Denúncia enviada com sucesso!")
+        return
 
         canal = client.get_channel("498300664607408129")
         embed = discord.Embed(
