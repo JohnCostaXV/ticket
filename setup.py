@@ -26,6 +26,17 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if message.content.lower().startswith('!notificar'):
+        try:
+            cargo = discord.utils.get(message.server.roles, name='🔔 Notificação')
+            await client.add_roles(message.author, cargo)
+            
+            embed = discord.Embed(title="🔔 Você ativou as notificações!", description="Cada vez que tiver uma novidade você será notificado.", color=0x2A6EED)
+            await client.send_message(message.channel, embed=embed)
+        except:
+            await client.send_message(message.channel, "erro")
+
+
     if message.content.lower().startswith("!criarticket"):
         cargos = [
             # IDs dos cargos:
