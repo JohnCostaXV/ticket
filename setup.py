@@ -28,6 +28,7 @@ async def on_ready():
 async def on_message(message):
     if message.content.lower().startswith("!reportar"):
         await client.add_reaction(message, "📞")
+        await asyncio.sleep(1)
         await client.send_message(message.author, "Qual o usuário que deseja reportar?")
         usuário = await client.wait_for_message(author=message.author)
         await client.send_message(message.author, "Qual motivo da denúncia?")
