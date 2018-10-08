@@ -28,11 +28,15 @@ async def on_ready():
 async def on_message(message):
     if message.content.lower().startswith('!notificar'):
         try:
-            cargo = discord.utils.get(message.server.roles, name='🔔 Notificação')
-            await client.add_roles(message.author, cargo)
-            
-            embed = discord.Embed(title="🔔 Você ativou as notificações!", description="Cada vez que tiver uma novidade você será notificado.", color=0x2A6EED)
-            await client.send_message(message.channel, embed=embed)
+            for role in message.author.roles:
+                if role.name == "🔔 Notificação":
+                    cargo = discord.utils.get(message.server.roles, name='🔔 Notificação')
+                    embed = discord.Embed(title="🔔 Você desativou as notificações!", description="Agora você não recebe mais notificações. Para reativar, use novamente o comando `!notificar`.", color=0x2A6EED)
+                    await client.remove_roles(message.author, cargo)
+                else:              
+                    await client.add_roles(message.author, cargo)
+                    embed = discord.Embed(title="🔔 Você ativou as notificações!", description="Cada vez que tiver uma novidade você será notificado.", color=0x2A6EED)
+                    await client.send_message(message.channel, embed=embed)
         except:
             await client.send_message(message.channel, "erro")
 
