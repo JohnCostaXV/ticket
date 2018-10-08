@@ -26,6 +26,24 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if message.content.lower().startswith("!reportar"):
+        await client.add_reaction(message, "📞")
+        await client.send_message(message.author, "Qual o usuário que deseja reportar?")
+        usuário = await client.wait_for_message(author=message.author)
+        await client.send_message(message.author, "Qual motivo da denúncia?")
+        motivo = await client.wait_for_message(author=message.author)
+        await client.send_message(message.author, "Possui alguma prova do ocorrido?")
+        prova = await client.wait_for_message(author=message.author)
+        await client.send_message(message.author, "📞 | Denúncia enviada com sucesso!")
+
+        canal = client.get_channel("498300664607408129")
+        embed = discord.Embed(
+            title="Nova denúncia!\nEnviada por: {}".format(message.author.mention),
+            color=COR,
+            description="**Usuário denunciado**: {}\n**Motivo da denúncia**: {}\n**Prova**: {}".format(usuário.content, motivo.content, prova.content)
+        )
+        await client.send_message(canal, embed=embed)
+
     
     if message.content.lower().startswith("!criarticket"):
         cargos = [
