@@ -27,7 +27,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.lower().startswith("!reportar"):
-        await client.add_reaction(message, "📞")
+        await client.add_reaction(message, "🔩")
         await asyncio.sleep(1)
         await client.send_message(message.author, "Qual o usuário que deseja reportar?")
         usuário = await client.wait_for_message(author=message.author)
@@ -39,9 +39,30 @@ async def on_message(message):
 
         canal = client.get_channel("498300664607408129")
         embed = discord.Embed(
-            title="Nova denúncia!\nEnviada por: {}".format(message.author.mention),
+            title="",
             color=COR,
-            description="**Usuário denunciado**: {}\n**Motivo da denúncia**: {}\n**Prova**: {}".format(usuário.content, motivo.content, prova.content)
+            description="Denúncia recebida. \nEnviada por: {}".format(message.author.mention)
+        )
+        embed.set_author(name='Denúncia', icon_url='https://images-ext-1.discordapp.net/external/BCKxPNzZzEVfkbIublv7_3wG2016jTwGk3onTemVRnM/%3Fv%3D1/https/cdn.discordapp.com/emojis/450112878108999680.gif')
+        embed.add_field(
+            name="Suspeito:",
+            value=usuário.content,
+            inline=False
+        )
+        embed.add_field(
+            name="Motivo:",
+            value=motivo.content,
+            inline=False
+        )
+        embed.add_field(
+            name="Prova:",
+            value=prova.content,
+            inline=False
+        )
+        embed.timestamp = datetime.datetime.utcnow()
+        embed.set_footer(
+            text="Denúncia postada com sucesso.",
+            icon_url=message.author.avatar_url
         )
         await client.send_message(canal, embed=embed)
 
