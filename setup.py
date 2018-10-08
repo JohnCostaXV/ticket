@@ -26,11 +26,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.lower().startswith("!cite"):
-        args = message.mentions[0]
-        await client.send_message(args, "teste")
-
-
+    
     if message.content.lower().startswith("!criarticket"):
         cargos = [
             # IDs dos cargos:
