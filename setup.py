@@ -34,10 +34,11 @@ async def on_message(message):
                     embed1 = discord.Embed(title="🔔 Você desativou as notificações!", description="Agora você não recebe mais notificações. Para reativar, use novamente o comando `!notificar`.", color=0x2A6EED)
                     await client.remove_roles(message.author, cargo)
                     await client.send_message(message.channel, embed=embed1)
-
-            await client.add_roles(message.author, cargo)
-            embed = discord.Embed(title="🔔 Você ativou as notificações!", description="Cada vez que tiver uma novidade você será notificado.", color=0x2A6EED)
-            await client.send_message(message.channel, embed=embed)              
+                    return
+            else:    
+                await client.add_roles(message.author, cargo)
+                embed = discord.Embed(title="🔔 Você ativou as notificações!", description="Cada vez que tiver uma novidade você será notificado.", color=0x2A6EED)
+                await client.send_message(message.channel, embed=embed)              
         except:
             await client.send_message(message.channel, "erro")
 
